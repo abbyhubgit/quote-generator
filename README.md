@@ -1,2 +1,2 @@
 # quote-generator
-Quote generator generates a new quote everytime user click 'New Quote' button and allows user to tweet this new quote when click 'Tweet' button. 
+Quote generator allows user to get a new quote by clicking 'New Quote' button and tweet this new quote by clicking 'Tweet' button. 
