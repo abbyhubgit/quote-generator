@@ -8,7 +8,7 @@ let apiQuotes = [];
 
 function newQuote(){
     // show loader, hide quoteContainer 
-    loading();
+    showLoader();
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
     // if long quote, apply 'long-quote' css class. 
     // else : remove 'long-quote' css class. 
@@ -18,14 +18,14 @@ function newQuote(){
         quoteText.classList.remove('long-quote');
     }
     // show quoteContainer, hide loader 
-    complete(); 
+    hideLoader(); 
     quoteText.textContent = quote.text; 
 }
 
 // get quote from api 
 async function getQuote(){
     const apiURL = 'https://type.fit/api/quotes';
-    loading();
+    showLoader();
     try{
         const response = await fetch(apiURL);
         //parse as json: 
@@ -44,13 +44,12 @@ function tweetQuote() {
     window.open(twitterURL);
 }
 
-// show loader, hide quoteContainer 
-function loading() {
+function showLoader() {
     loader.hidden = false; 
     quoteContainer.hidden = true; 
 }
-// show quoteContainer, hide loader 
-function complete() {
+
+function hideLoader() {
     loader.hidden = true; 
     quoteContainer.hidden = false; 
 }
